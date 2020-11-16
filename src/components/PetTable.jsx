@@ -1,11 +1,20 @@
 import React from 'react'
 import { Table } from "react-bootstrap"
+// import TablePagination from './TablePagination';
+
+import { TrashFill } from 'react-bootstrap-icons';
+
+const style = {
+    trashCan: {
+        color: "#dc3545"
+    }
+}
 
 export default function PetTable(props) {
     let table;
-    let { petData } = props
+    let { data } = props
 
-    petData.length > 0 ? 
+    data.length > 0 ? 
     table = 
         <div>
             <Table striped bordered hover>
@@ -15,23 +24,25 @@ export default function PetTable(props) {
                     <th>Name</th>
                     <th>Photo Thumbnail</th>
                     <th>Status</th>
-                    <th>Tags</th>
+                    <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {petData.map(pet => {
+                    {data.map((item, index) => {
                         return (
-                            <tr>
-                                <td>{pet.id}</td>
-                                <td>{pet.name}</td>
-                                <td>{pet.photoUrls}</td>
-                                <td>{pet.tags}</td>
-                                <td>{pet.status}</td>
+                            <tr key={index}>
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td>{item.photoUrls[0]}</td>
+                                <td>{item.status}</td>
+                                <td><TrashFill style={style.trashCan}/></td>
                             </tr>
                         )
                     })}
                 </tbody>
             </Table>
+            {/* In-progress: paginating the data. */}
+            {/* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */}
         </div>
     : table = <></>
 

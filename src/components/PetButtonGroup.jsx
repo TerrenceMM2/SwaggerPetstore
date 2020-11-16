@@ -3,7 +3,8 @@ import { ButtonGroup, Button } from "react-bootstrap"
 
 const style = {
     group: {
-        float: "right"
+        float: "right",
+        marginBottom: "1rem"
     }
 }
 

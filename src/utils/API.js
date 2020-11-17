@@ -7,3 +7,12 @@ export const getPets = async (petStatus) => {
     });
     return response.data
 }
+
+export const updatePet = async (updatedPet) => {
+    const response = await axios({
+        method: "PUT",
+        url: `https://petstore.swagger.io/v2/pet`,
+        data: updatedPet
+    });
+    return response.data
+}

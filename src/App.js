@@ -6,6 +6,7 @@ import PetTable from "./components/PetTable"
 import PetButtonGroup from "./components/PetButtonGroup"
 import Footer from "./components/Footer"
 import NewPetButton from "./components/NewPetButton"
+import AlertModal from "./components/AlertModal"
 
 import { Container } from "react-bootstrap"
 
@@ -29,10 +30,16 @@ function App() {
     const [limitedPetData, setLimitedPetData] = useState([])
     const [offset, setOffset] = useState(0)
     const [pages, setPages] = useState(0)
+    const [petStatus, setPetStatus] = useState("")
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
 
     const handleSearch = async (event) => {
         setPetData([])
         const { status } = event.target.dataset
+        setPetStatus(status)
         try {
             const response = await getPets(status)
             setPetData(response)
@@ -62,7 +69,8 @@ function App() {
             <Container style={style.container}>
                 <NewPetButton />
                 <PetButtonGroup handleSearch={handleSearch}/>
-                <PetTable data={limitedPetData}/>
+                <PetTable petStatus={petStatus} data={limitedPetData}/>
+                <AlertModal />
             </Container>
             <Footer />
         </div>

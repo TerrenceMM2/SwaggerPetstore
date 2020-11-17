@@ -14,5 +14,5 @@ export const updatePet = async (updatedPet) => {
         url: `https://petstore.swagger.io/v2/pet`,
         data: updatedPet
     });
-    return response.data
+    return response
 }

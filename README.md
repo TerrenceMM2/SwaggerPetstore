@@ -9,6 +9,10 @@ A React-based web application using the [Swagger Petstore API](https://petstore.
 1. Begin your search clicking the pet availability buttons - available, pending, or sold.
 2. For pets listed as "available," click the green, shopping cart icon to set a pet to "sold."
 
+## Screenshot
+
+![Swagger Pet Store Screenshot](../media/screenshot.png?raw=true)
+
 ### Technologies Used
 
 -   [React](https://reactjs.org/)

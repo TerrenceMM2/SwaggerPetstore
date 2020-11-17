@@ -40,6 +40,8 @@ export default function PetTable(props) {
 
         soldPet.status = "sold";
 
+        const response = await updatePet(soldPet)
+
         // Sets alert data and shows toast
         setAlertData(response)
         setShow(true)
@@ -73,8 +75,8 @@ export default function PetTable(props) {
                         })}
                     </tbody>
                 </Table>
-                {/* In-progress: paginating the data. */}
-                {/* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */}
+                /* In-progress: paginating the data. */
+                /* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */
             break;
         case "pending":
             table = 
@@ -100,8 +102,8 @@ export default function PetTable(props) {
                         })}
                     </tbody>
                 </Table>
-                {/* In-progress: paginating the data. */}
-                {/* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */}
+                /* In-progress: paginating the data. */
+                /* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */
             break;
         case "sold":
             table = 
@@ -127,8 +129,8 @@ export default function PetTable(props) {
                         })}
                     </tbody>
                 </Table>
-                {/* In-progress: paginating the data. */}
-                {/* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */}
+                /* In-progress: paginating the data. */
+                /* {(pages > 1) ? <TablePagination handleOffset={handleOffset} pages={pages} offset={offset}/> : <></>} */
             break;
         default:
             table = <></>

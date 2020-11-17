@@ -17,7 +17,7 @@ export default function AlertToast(props) {
     let alertTitle;
     let alertText
 
-    if (status != 200) {
+    if (status !== 200) {
         alertTitle = "Error"
         alertText = "There was an issue"
     } else {

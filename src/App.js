@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react'
+
+// React-Bootstrap
+import { Container } from "react-bootstrap"
+
+// Design
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+// Custom Components
 import Header from "./components/Header"
 import PetTable from "./components/PetTable"
 import PetButtonGroup from "./components/PetButtonGroup"
 import Footer from "./components/Footer"
 import NewPetButton from "./components/NewPetButton"
 
-import { Container } from "react-bootstrap"
-
+// APIs
 import { getPets } from "./utils/API"
+
+// Utility Functions
 import { limitResults, pagination } from "./utils/dataHandling"
 
 const style = {
@@ -31,10 +38,14 @@ function App() {
     const [pages, setPages] = useState(0)
     const [petStatus, setPetStatus] = useState("")
 
+    // Searches Swagger Petstore API based on status value
     const handleSearch = async (event) => {
+        // Resets state
         setPetData([])
+
         const { status } = event.target.dataset
         setPetStatus(status)
+
         try {
             const response = await getPets(status)
             setPetData(response)
@@ -53,6 +64,7 @@ function App() {
     //     setOffset(num)
     // }
 
+    // Separates larger dataset for display purposes
     useEffect(async () => {
         const limitedData = await limitResults(petData, offset)
         setLimitedPetData(limitedData)

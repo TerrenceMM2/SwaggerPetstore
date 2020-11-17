@@ -26,11 +26,13 @@ export default function PetTable(props) {
     const [show, setShow] = useState(false)
     const [alertData, setAlertData] = useState({})
 
+    // Update "sold" pet
     const handleSold = async (event) => {
         const { id } = event.target.dataset
         const petDataArr = document.getElementById(id).children;
         const soldPet = {};
 
+        // Creates new object data for PUT request
         for (var i = 0; i < (petDataArr.length - 2); i++) {
             const value = petDataArr[i].textContent
             soldPet[petDataArr[i].dataset.name] = value
@@ -38,11 +40,12 @@ export default function PetTable(props) {
 
         soldPet.status = "sold";
 
-        const response = await updatePet(soldPet)
+        // Sets alert data and shows toast
         setAlertData(response)
         setShow(true)
     }
 
+    // Shows custom tables based on status
     switch (petStatus) {
         case "available":
             table = 

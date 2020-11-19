@@ -11,7 +11,7 @@ A React-based web application using the [Swagger Petstore API](https://petstore.
 
 ## Screenshot
 
-![Swagger Pet Store Screenshot](../media/screenshot.png?raw=true)
+![Swagger Pet Store Screenshot](../media/petstore-screenshot.png?raw=true)
 
 ### Technologies Used
 

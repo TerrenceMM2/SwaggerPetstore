@@ -1,8 +1,9 @@
 export const limitResults = (data, offset) => {
-    const index = offset * 10
-    return data.slice(index, (index + 10))
-}
+	const index = offset * 10;
+	console.log(data.slice(index, index + 10));
+	return data.slice(index, index + 10);
+};
 
 export const pagination = (num) => {
-    return Math.ceil(num / 10)
-}
+	return Math.ceil(num / 10);
+};

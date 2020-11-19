@@ -47,7 +47,6 @@ function App() {
 
 		try {
 			const response = await getPets(status);
-			console.log(response);
 			setPetData(response);
 			setPages(pagination(response.length));
 		} catch (error) {

@@ -1,6 +1,5 @@
 export const limitResults = (data, offset) => {
 	const index = offset * 10;
-	console.log(data.slice(index, index + 10));
 	return data.slice(index, index + 10);
 };
 
